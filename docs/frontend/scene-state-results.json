@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "reactor power and cooling colors",
+    "greenhouse recovery",
+    "grow lamps",
+    "deck lighting",
+    "canvas resize and camera aspect at three sizes"
+  ],
+  "note": "geometry/material and sizing logic only; not visual browser QA"
+}

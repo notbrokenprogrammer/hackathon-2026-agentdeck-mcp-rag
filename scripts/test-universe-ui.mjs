@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import {UniversePanel} from '../web/src/ui/UniversePanel.js';
+
+// Exercise mutation ordering and rejection recovery without a browser or fake backend.
+const ui=Object.create(UniversePanel.prototype);
+Object.assign(ui,{state:{version:7},roomKey:'ROOM:1',requestGeneration:1,busy:false,dialog:{open:false,setAttribute(){},removeAttribute(){}},toast(){},showStatus(){},user:()=>({id:'owner'}),room:()=>({code:'ROOM',generation:1,owner:'owner'}),setState(state){if(!this.matchesRoom(state))return false;this.state=state;return true;}});
+assert.equal(ui.isAdmin,true);
+ui.room=()=>({code:'ROOM',generation:1,owner:'someone-else'});assert.equal(ui.isAdmin,false);
+const sent=[];let resolve;
+ui.network={ready:true,request(type,payload){sent.push({type,payload});return new Promise(r=>resolve=r);}};
+const pending=ui.mutate('universe.interact',{object_id:'crate-1',action:'pickup'});
+assert.deepEqual(sent[0],{type:'universe.interact',payload:{object_id:'crate-1',action:'pickup',expected_version:7}});
+assert.equal(await ui.mutate('universe.interact',{object_id:'crate-1',action:'pickup'}),null);
+assert.equal(sent.length,1,'double clicks cannot race the same world revision');
+resolve({message:'done'});await pending;assert.equal(ui.busy,false);
+ui.network.request=async(type,payload)=>{sent.push({type,payload});if(type==='universe.admin')throw new Error('version conflict');return {room_code:'ROOM',generation:1,version:8,settings:{}};};
+assert.equal(await ui.mutate('universe.admin',{settings:{npc_count:80}}),null);
+assert.deepEqual(sent.slice(1).map(x=>x.type),['universe.admin','universe.get'],'a rejected mutation refreshes state without retrying it');
+assert.equal(ui.state.version,8);
+ui.network.request=async(type,payload)=>{sent.push({type,payload});return {message:'done'};};
+await ui.mutate('universe.admin',{expected_version:6,settings:{npc_count:10}});
+assert.equal(sent.at(-1).payload.expected_version,6,'a settings draft keeps its original revision rather than adopting a newer push');
+ui.network.request=async()=>({room_code:'OTHER',generation:1,version:99,settings:{}});
+assert.equal(await ui.mutate('universe.admin',{settings:{npc_count:10}}),null,'foreign room mutation responses are ignored');
+assert.equal(ui.state.version,8);
+ui.network.request=()=>new Promise(r=>resolve=r);
+const oldRoom=ui.mutate('universe.admin',{settings:{npc_count:10}});
+ui.requestGeneration++;
+resolve({room_code:'ROOM',generation:1,version:9,settings:{npc_count:10}});
+assert.equal(await oldRoom,null,'ignore a completed request belonging to the prior room');
+assert.equal(ui.state.version,8);
+console.log('Universe UI: owner display, expected revision, double submit prevention, refresh without replay, stale room response — passed');

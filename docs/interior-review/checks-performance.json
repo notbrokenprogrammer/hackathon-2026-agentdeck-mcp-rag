@@ -1,0 +1,23 @@
+{
+  "world_version": "116d144a644ed813",
+  "passed": [
+    "npm test: 19 suites",
+    "go test -count=1 ./...",
+    "go vet ./...",
+    "go test -race: game/server/npc/agents/rag/protocol",
+    "go build: lastcrew",
+    "build-all.py: macOS/Linux/Windows server + MCP",
+    "smoke-release: compiled host, two WebSocket clients, persistence, embedded frontend",
+    "test-launcher.py: launcher + MCP stdio",
+    "test-software-lighting.mjs: pixels/depth/clipping/UV",
+    "70 transition positions with stable enclosure",
+    "64 sealed window corner rays and16 clear aperture rays",
+    "two passes through18 review positions"
+  ],
+  "limitations": [
+    "No browser/WebGL/Pointer Lock or hardware FPS verification",
+    "No physical two-computer session",
+    "No new inference on real Ollama weights",
+    "Windows/Linux cross-compiled only"
+  ]
+}

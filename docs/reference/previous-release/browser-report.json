@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "agents": [
+    {
+      "agent": "savinykh",
+      "mode": "knowledge_base",
+      "evidence": 3
+    },
+    {
+      "agent": "dzhanibekov",
+      "mode": "knowledge_base",
+      "evidence": 3
+    },
+    {
+      "agent": "ryazansky",
+      "mode": "knowledge_base",
+      "evidence": 3
+    },
+    {
+      "agent": "krikalev",
+      "mode": "knowledge_base",
+      "evidence": 3
+    }
+  ],
+  "mcpTools": 40,
+  "checks": [
+    "registration",
+    "authenticated WebSocket",
+    "WebGL scene",
+    "captain camera",
+    "four offline personas",
+    "historical citation",
+    "historical follow-up",
+    "two-player shared operation",
+    "live agent analysis",
+    "stdio MCP live state",
+    "mobile layout",
+    "reconnect",
+    "logout",
+    "no external requests"
+  ],
+  "browserErrors": []
+}

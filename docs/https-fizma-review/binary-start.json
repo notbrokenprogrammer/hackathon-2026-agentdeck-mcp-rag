@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "stdout": "time=2026-11-01T16:11:26.690+03:00 level=INFO msg=\"server tick loop started\" frequency_hz=20 tick_interval_ms=50\ntime=2026-11-01T16:11:26.690+03:00 level=INFO msg=\"periodic persistence auto-save started\" interval=2s\ntime=2026-11-01T16:11:26.725+03:00 level=INFO msg=\"local crew model configured\" enabled=true model=qwen3:4b-instruct-2507-q4_K_M endpoint=http://127.0.0.1:11434\ntime=2026-11-01T16:11:26.726+03:00 level=ERROR msg=\"host stopped\" error=\"listen tcp 127.0.0.1:0: bind: operation not permitted\"\n",
+  "stderr": ""
+}

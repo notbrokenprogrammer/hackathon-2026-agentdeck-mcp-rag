@@ -1,0 +1,49 @@
+{
+  "kind": "offline SoftwareRenderer; not gameplay FPS",
+  "resolution": "1440 × 900",
+  "npc_count": 0,
+  "frames": [
+    {
+      "name": "bridge",
+      "render_ms": 192.8,
+      "triangles": 11405,
+      "calls": 662
+    },
+    {
+      "name": "corridor",
+      "render_ms": 116.9,
+      "triangles": 5508,
+      "calls": 731
+    },
+    {
+      "name": "research",
+      "render_ms": 67.8,
+      "triangles": 2906,
+      "calls": 271
+    },
+    {
+      "name": "door-closed",
+      "render_ms": 52.1,
+      "triangles": 431,
+      "calls": 109
+    },
+    {
+      "name": "door-open",
+      "render_ms": 86.1,
+      "triangles": 2647,
+      "calls": 353
+    },
+    {
+      "name": "cargo",
+      "render_ms": 78.9,
+      "triangles": 3502,
+      "calls": 296
+    },
+    {
+      "name": "habitat",
+      "render_ms": 71.6,
+      "triangles": 2770,
+      "calls": 261
+    }
+  ]
+}

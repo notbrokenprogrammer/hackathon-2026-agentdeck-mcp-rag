@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "feeders-crew": {
+      "command": "C:/Feeders_Merged/bin/mcp-tools.exe",
+      "args": [
+        "-chunks",
+        "C:/Feeders_Merged/knowledge",
+        "-view-file",
+        "C:/Feeders_Merged/data/crew-view.json",
+        "-player-id",
+        "REPLACE_WITH_PLAYER_READY_USER_ID"
+      ]
+    }
+  }
+}

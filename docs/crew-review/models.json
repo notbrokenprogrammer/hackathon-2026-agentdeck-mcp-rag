@@ -1,0 +1,25 @@
+{
+  "kind": "offline rendering of runtime procedural 3D; not photogrammetry or WebGL benchmark",
+  "metrics": [
+    {
+      "id": "savinykh",
+      "meshes": 41,
+      "triangles": 24688
+    },
+    {
+      "id": "dzhanibekov",
+      "meshes": 41,
+      "triangles": 24644
+    },
+    {
+      "id": "ryazansky",
+      "meshes": 40,
+      "triangles": 22340
+    },
+    {
+      "id": "krikalev",
+      "meshes": 42,
+      "triangles": 22732
+    }
+  ]
+}

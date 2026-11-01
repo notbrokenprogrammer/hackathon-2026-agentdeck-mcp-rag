@@ -1,0 +1,21 @@
+{
+  "actual_stdio_mcp": "passed",
+  "agent_world_command": "passed",
+  "client_telemetry": "passed",
+  "compiled_host": "passed",
+  "embedded_frontend_matches_source": "passed",
+  "idempotency": "passed",
+  "interactive_pickup_drop": "passed",
+  "operation_forecast": "passed",
+  "qa_fixture_excluded": "passed",
+  "registration": "passed",
+  "session_restore": "passed",
+  "shared_experiment_gamma": 1.25,
+  "shared_universe": "passed",
+  "sqlite_crash_restore": "passed",
+  "synchronized_resources": "passed",
+  "two_websocket_clients": "passed",
+  "unavailable_llm_fallback": "passed",
+  "universe_restore": "passed",
+  "world_cache_ratio": 0.03317326933219814
+}

@@ -1,0 +1,262 @@
+{
+  "passed": true,
+  "scope": "production loader with server plans and local file transport; no browser or live network",
+  "routePasses": 2,
+  "requests": 3304,
+  "disposed": 1172,
+  "peak_bytes": 8733129,
+  "world_bytes": 29422101,
+  "peak_ratio": 0.2968220726317267,
+  "bridgeStaticBatching": {
+    "meshes_before": 8418,
+    "meshes_after": 2121,
+    "instanced_parts": 7142,
+    "scope": "resident static mesh nodes; not measured GPU draw calls"
+  },
+  "frames": [
+    {
+      "name": "bridge",
+      "render_ms": 181.1,
+      "triangles": 14093,
+      "calls": 761,
+      "resident_bytes": 7206366,
+      "ratio": 0.24493036714135405,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "window",
+      "render_ms": 220.4,
+      "triangles": 3802,
+      "calls": 158,
+      "resident_bytes": 7210991,
+      "ratio": 0.245087561897772,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "window-angle",
+      "render_ms": 165.7,
+      "triangles": 10095,
+      "calls": 340,
+      "resident_bytes": 7210991,
+      "ratio": 0.245087561897772,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "cryo",
+      "render_ms": 216.1,
+      "triangles": 4966,
+      "calls": 374,
+      "resident_bytes": 7210116,
+      "ratio": 0.24505782234926052,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "reactor",
+      "render_ms": 193.5,
+      "triangles": 15759,
+      "calls": 558,
+      "resident_bytes": 7282128,
+      "ratio": 0.24750537019772992,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "bio",
+      "render_ms": 212.6,
+      "triangles": 28948,
+      "calls": 1108,
+      "resident_bytes": 6376995,
+      "ratio": 0.21674165961159605,
+      "loaded_mentors": [
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "corridor",
+      "render_ms": 172.3,
+      "triangles": 6648,
+      "calls": 1193,
+      "resident_bytes": 7188824,
+      "ratio": 0.24433414867279532,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "research",
+      "render_ms": 170.3,
+      "triangles": 2375,
+      "calls": 364,
+      "resident_bytes": 6965654,
+      "ratio": 0.2367490343398658,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "cargo",
+      "render_ms": 154.4,
+      "triangles": 3634,
+      "calls": 425,
+      "resident_bytes": 6811716,
+      "ratio": 0.23151698106127772,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "habitat",
+      "render_ms": 134.6,
+      "triangles": 4174,
+      "calls": 419,
+      "resident_bytes": 6900948,
+      "ratio": 0.23454980322445362,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "bridge-alt",
+      "render_ms": 172.8,
+      "triangles": 13549,
+      "calls": 720,
+      "resident_bytes": 7206424,
+      "ratio": 0.24493233844856965,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "cryo-alt",
+      "render_ms": 187.6,
+      "triangles": 7979,
+      "calls": 533,
+      "resident_bytes": 7043433,
+      "ratio": 0.23939259130406765,
+      "loaded_mentors": [
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "reactor-alt",
+      "render_ms": 184.3,
+      "triangles": 15565,
+      "calls": 653,
+      "resident_bytes": 6375389,
+      "ratio": 0.21668707479455665,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "bio-alt",
+      "render_ms": 233.2,
+      "triangles": 31860,
+      "calls": 1354,
+      "resident_bytes": 6431571,
+      "ratio": 0.2185965917253836,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "corridor-alt",
+      "render_ms": 123.2,
+      "triangles": 6163,
+      "calls": 1156,
+      "resident_bytes": 7283659,
+      "ratio": 0.2475574059106112,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "research-alt",
+      "render_ms": 174.6,
+      "triangles": 6993,
+      "calls": 698,
+      "resident_bytes": 6965654,
+      "ratio": 0.2367490343398658,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "cargo-alt",
+      "render_ms": 152.4,
+      "triangles": 6206,
+      "calls": 531,
+      "resident_bytes": 6521171,
+      "ratio": 0.22164192149296205,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "krikalev"
+      ]
+    },
+    {
+      "name": "habitat-alt",
+      "render_ms": 155,
+      "triangles": 6291,
+      "calls": 600,
+      "resident_bytes": 6339507,
+      "ratio": 0.2154675153891967,
+      "loaded_mentors": [
+        "savinykh",
+        "dzhanibekov",
+        "krikalev"
+      ]
+    }
+  ]
+}

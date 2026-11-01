@@ -1,0 +1,9 @@
+{
+  "source_archive": "FIZMA.zip",
+  "files": {
+    "components/ui/cursor-glow.tsx": "c2b8d8f84ddf77a696bdb181174cc810636ba72dcc05439ed6f7696f268fce3c",
+    "components/auth/auth-form.tsx": "b63af169c012e0e1fb081d5414582cb7b8cb6bfabff8588eb9472ac5677445c4",
+    "app/globals.css": "4b39d4e33b7491cf42ff60f88eda5446bebb7d1bb473442294c7d303e19076a8",
+    "lib/config/themes.ts": "95c6c03d5f5c497b8f1ad0c9f33fcffb4650c38d64105cbb94a9309a568617a4"
+  }
+}

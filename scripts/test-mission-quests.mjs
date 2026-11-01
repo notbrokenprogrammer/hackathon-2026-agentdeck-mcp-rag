@@ -1,0 +1,40 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {missionQuests,completedQuestChanges} from '../web/src/ui/MissionQuests.js';
+
+const initial={version:1,cycle:1,game_over:false,victory:false};
+const patches=[{cooling_repaired:true},{reactor_active:true},{greenhouse_active:true},{archive_restored:true},{investigation_solved:true},{course_calculated:true},{battery_available:false},{game_over:true,victory:true}];
+const fixture=[initial];for(const patch of patches)fixture.push({...fixture.at(-1),...patch,version:fixture.length+1});
+const states=process.argv.includes('--stdin')?JSON.parse(fs.readFileSync(0,'utf8')):fixture;
+assert.deepEqual(states.map(s=>missionQuests(s).filter(q=>q.done).length),[0,0,1,2,2,3,4,4,5]);
+assert.equal(missionQuests(states[1])[0].checks[0].done,true);
+assert.equal(missionQuests(states[1])[0].checks[1].done,false);
+assert.equal(missionQuests(states.at(-1)).every(q=>q.status==='completed'),true);
+assert.deepEqual(completedQuestChanges(null,states.at(-1)),[],'reconnect does not replay old completion notifications');
+assert.deepEqual(completedQuestChanges(states[1],states[2]).map(q=>q.id),['power']);
+const lost={...states[3],game_over:true,victory:false};
+assert.equal(missionQuests(lost).filter(q=>q.done).length,2,'mission loss does not complete remaining tasks');
+assert.equal(missionQuests(lost).at(-1).status,'failed');
+const evacuation={...initial,game_over:true,victory:true};
+assert.equal(missionQuests(evacuation).filter(q=>q.done).length,1,'evacuation does not invent repairs');
+assert.equal(missionQuests(evacuation)[0].status,'skipped');
+assert.equal(missionQuests(initial).filter(q=>q.done).length,0,'new generation resets derived progress');
+
+// Exercise the actual HUD renderer, including its completion labels and next button.
+const source=fs.readFileSync(new URL('../web/src/main.js',import.meta.url),'utf8');
+const code=source.slice(source.indexOf('let questSnapshot='),source.indexOf('function canRole('));
+assert.ok(code.length>100);
+const nodes=new Map(['quest-title','quest-description','quest-number','quest-checklist','quest-action','quest-progress','quest-completed','quest-journal'].map(id=>[id,{textContent:'',innerHTML:''}]));
+const notifications=[],actions=[];
+const context=vm.createContext({missionQuests,completedQuestChanges,state:states[0],room:{code:'ROOM',generation:1},$:id=>nodes.get(id),escape:String,toast:text=>notifications.push(text),actions:[{id:'repair_cooling'},{id:'start_reactor'}],confirmAction:action=>actions.push(action.id)});
+new vm.Script(code).runInContext(context);context.renderQuest();
+assert.equal(nodes.get('quest-number').textContent,'0 / 5 ВЫПОЛНЕНО');
+assert.ok(!nodes.get('quest-progress').innerHTML.includes('class="done"'));
+nodes.get('quest-action').onclick();assert.deepEqual(actions,['repair_cooling']);
+context.state=states[1];context.renderQuest();nodes.get('quest-action').onclick();assert.equal(actions.at(-1),'start_reactor');
+context.state=states[2];context.renderQuest();assert.match(nodes.get('quest-completed').innerHTML,/Сердце корабля/);assert.equal(notifications.length,1);
+context.renderQuest();assert.equal(notifications.length,1,'unchanged state does not repeat notification');
+context.room={code:'NEW',generation:2};context.state=states.at(-1);context.renderQuest();assert.equal(notifications.length,1,'loading saved mission is quiet');
+assert.equal(nodes.get('quest-number').textContent,'5 / 5 ВЫПОЛНЕНО');
+console.log(JSON.stringify({passed:true,scope:process.argv.includes('--stdin')?'actual server route and production HUD':'quest projection and production HUD',checks:['partial progress','completed steps remain visible','correct next operation','notifications only on new completion','save/reconnect and reset','loss and early evacuation do not fake completion']}));

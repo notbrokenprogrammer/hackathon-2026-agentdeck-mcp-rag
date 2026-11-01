@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "invalid callsign",
+    "confirmation mismatch",
+    "duplicate submit prevented",
+    "mode change blocked while submitting",
+    "credentials cleared",
+    "invitation preserved",
+    "password visibility",
+    "bcrypt byte limit",
+    "duplicate callsign feedback",
+    "wrong credentials feedback",
+    "offline feedback"
+  ],
+  "scope": "DOM fixture; no browser layout or rendering assertions"
+}

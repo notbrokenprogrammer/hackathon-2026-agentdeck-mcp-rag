@@ -1,0 +1,3 @@
+# Optional source harvesting only; runtime/index rebuild uses no Python packages.
+lxml>=5,<7
+PyMuPDF>=1.24,<2

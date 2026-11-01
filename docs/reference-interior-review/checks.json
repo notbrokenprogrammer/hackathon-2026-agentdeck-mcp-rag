@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-01T17:43:38",
+  "checks": [
+    {
+      "command": "npm test",
+      "passed": true
+    },
+    {
+      "command": "go test -count=1 ./...",
+      "passed": true
+    },
+    {
+      "command": "go vet ./...",
+      "passed": true
+    },
+    {
+      "command": "go test -race -count=1 ./internal/game ./internal/server ./internal/npc ./internal/agents ./internal/rag ./pkg/protocol",
+      "passed": true
+    },
+    {
+      "command": "python3 scripts/test-launcher.py ./lastcrew",
+      "passed": true
+    },
+    {
+      "command": "go run ./cmd/smoke-release ./lastcrew",
+      "passed": true
+    },
+    {
+      "command": "node scripts/test-software-lighting.mjs",
+      "passed": true
+    },
+    {
+      "command": "python3 scripts/build-all.py",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "No browser screenshot or hardware WebGL/FPS acceptance",
+    "No new inference on real Ollama weights",
+    "Windows/Linux binaries cross-compiled, not executed on target OS"
+  ],
+  "world": {
+    "passed": true,
+    "scope": "production loader with server plans and local file transport; no browser or live network",
+    "routePasses": 2,
+    "requests": 2386,
+    "disposed": 960,
+    "peak_bytes": 2452136,
+    "world_bytes": 30652844,
+    "peak_ratio": 0.07999701430640498,
+    "frames": []
+  }
+}

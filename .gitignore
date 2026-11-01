@@ -1,0 +1,75 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build and temp
+dist/
+node_modules/
+temp/
+tmp/
+*.log
+__pycache__/
+*.py[cod]
+.venv/
+coverage/
+*.test
+*.out
+
+# Host runtime state and local Go build cache
+data/
+/.cache/
+/bin/
+/lastcrew
+/game-server
+/mcp-tools
+*.exe
+
+# Preview fixtures and procedural generation intermediates
+.preview-data/
+world_source/.build/
+
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.ssh/
+.gnupg/
+.netrc
+.npmrc
+.pypirc
+credentials.json
+service-account*.json
+*.har
+.aws/
+.codex/
+.agents/
+
+# Local databases, including SQLite journals
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+
+# Original design archives and local reference material
+*.zip
+/LastCrew_Interior_References/
+/LastCrew_NPC_References/
+/reference-05.png
+/ответ.txt
+
+# Manifests and logs from binary releases are not source manifests
+/RELEASE_MANIFEST.json
+/docs/validation/
+
+# Historical screenshot contains a temporary account and invitation code
+/docs/screenshots/scene-compatible.jpg

@@ -1,0 +1,3 @@
+# Начало выхода Юрчихина и Рязанского в августе 2017 года
+
+Cosmonauts Begin Spacewalk Cosmonauts Fyodor Yurchikhin (left) and Sergey Ryazanskiy are pictured in the Orlan spacesuits they are wearing during today’s spacewalk. Credit: @SergeyISS Expedition 52 Commander Fyodor Yurchikhin and Flight Engineer Sergey Ryazanskiy, of the Russian space agency Roscosmos began a planned six-hour spacewalk from the Pirs Docking Compartment of the International Space Station at 10:36 a.m. EDT. Both spacewalkers are wearing Russian Orlan spacesuits with blue stripes. Yurchikhin is designated extravehicular crew member 1 (EV1) for this spacewalk, the ninth of his career. Ryazanskiy, embarking on his fourth spacewalk, is extravehicular crew member 2 (EV2).

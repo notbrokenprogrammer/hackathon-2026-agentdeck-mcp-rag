@@ -1,0 +1,25 @@
+{
+  "scope": "real bridge plan, local assets, artificial per-request latency; both strategies use current verification and parser; not browser FPS",
+  "latency_ms": 10,
+  "world_version": "116d144a644ed813",
+  "results": [
+    {
+      "strategy": "paired-2",
+      "load_ms": 1867,
+      "requests": 296,
+      "peak_requests": 2,
+      "resident_bytes": 2466059,
+      "peak_bytes": 2466059,
+      "assembly_yields": 6
+    },
+    {
+      "strategy": "pool-6",
+      "load_ms": 634,
+      "requests": 296,
+      "peak_requests": 6,
+      "resident_bytes": 2466059,
+      "peak_bytes": 2466059,
+      "assembly_yields": 5
+    }
+  ]
+}

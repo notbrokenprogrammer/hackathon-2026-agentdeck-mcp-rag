@@ -1,0 +1,525 @@
+{
+  "source": "sources/scenario.docx",
+  "source_sha256": "8614efef193cd6f7a0fb63f106972aa49a632429797f8270baf52fb014be2270",
+  "source_paragraphs": 517,
+  "kind": "user_game_scenario",
+  "captain_biography_chunks": "not supplied in this conversation",
+  "chunks": [
+    {
+      "chunk_id": "scenario-briefing",
+      "paragraph_ranges": [
+        [
+          4,
+          4
+        ],
+        [
+          19,
+          25
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-cooperation",
+      "paragraph_ranges": [
+        [
+          32,
+          48
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-resources",
+      "paragraph_ranges": [
+        [
+          49,
+          72
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-cycle",
+      "paragraph_ranges": [
+        [
+          73,
+          82
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-captain",
+      "paragraph_ranges": [
+        [
+          30,
+          31
+        ]
+      ],
+      "agents": [
+        "dzhanibekov"
+      ],
+      "requires_facts": [
+        "shutdown_command"
+      ]
+    },
+    {
+      "chunk_id": "scenario-engineer",
+      "paragraph_ranges": [
+        [
+          26,
+          27
+        ]
+      ],
+      "agents": [
+        "savinykh"
+      ],
+      "requires_facts": [
+        "temperature_spike"
+      ]
+    },
+    {
+      "chunk_id": "scenario-biologist",
+      "paragraph_ranges": [
+        [
+          28,
+          29
+        ]
+      ],
+      "agents": [
+        "ryazansky"
+      ],
+      "requires_facts": [
+        "no_infection"
+      ]
+    },
+    {
+      "chunk_id": "scenario-first-crisis",
+      "paragraph_ranges": [
+        [
+          88,
+          109
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-archive-cost",
+      "paragraph_ranges": [
+        [
+          111,
+          112
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-temperature",
+      "paragraph_ranges": [
+        [
+          116,
+          118
+        ]
+      ],
+      "agents": [
+        "savinykh"
+      ],
+      "requires_facts": [
+        "temperature_spike"
+      ]
+    },
+    {
+      "chunk_id": "scenario-filter",
+      "paragraph_ranges": [
+        [
+          119,
+          121
+        ]
+      ],
+      "agents": [
+        "savinykh"
+      ],
+      "requires_facts": [
+        "damaged_filter"
+      ]
+    },
+    {
+      "chunk_id": "scenario-sample",
+      "paragraph_ranges": [
+        [
+          122,
+          124
+        ]
+      ],
+      "agents": [
+        "ryazansky"
+      ],
+      "requires_facts": [
+        "no_infection"
+      ]
+    },
+    {
+      "chunk_id": "scenario-chronology",
+      "paragraph_ranges": [
+        [
+          125,
+          130
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "krikalev"
+      ],
+      "requires_facts": [
+        "archive_chronology",
+        "impact_record"
+      ]
+    },
+    {
+      "chunk_id": "scenario-confirmed-cause",
+      "paragraph_ranges": [
+        [
+          131,
+          137
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": [
+        "cause_confirmed"
+      ]
+    },
+    {
+      "chunk_id": "scenario-course",
+      "paragraph_ranges": [
+        [
+          138,
+          141
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-emergency-plan",
+      "paragraph_ranges": [
+        [
+          145,
+          147
+        ],
+        [
+          157,
+          158
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-ecosystem-plan",
+      "paragraph_ranges": [
+        [
+          148,
+          150
+        ],
+        [
+          159,
+          160
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-combined-plan",
+      "paragraph_ranges": [
+        [
+          151,
+          153
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-evacuation",
+      "paragraph_ranges": [
+        [
+          154,
+          156
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-ai-limits",
+      "paragraph_ranges": [
+        [
+          220,
+          224
+        ],
+        [
+          230,
+          233
+        ],
+        [
+          249,
+          250
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-quest-rules",
+      "paragraph_ranges": [
+        [
+          353,
+          358
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": []
+    },
+    {
+      "chunk_id": "scenario-leak-alert",
+      "paragraph_ranges": [
+        [
+          390,
+          391
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky"
+      ],
+      "requires_facts": [
+        "leak_active"
+      ]
+    },
+    {
+      "chunk_id": "scenario-leak-inspection",
+      "paragraph_ranges": [
+        [
+          392,
+          405
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky"
+      ],
+      "requires_facts": [
+        "valves_inspected"
+      ]
+    },
+    {
+      "chunk_id": "scenario-drone-alert",
+      "paragraph_ranges": [
+        [
+          406,
+          407
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "krikalev"
+      ],
+      "requires_facts": [
+        "drone_active"
+      ]
+    },
+    {
+      "chunk_id": "scenario-drone-route",
+      "paragraph_ranges": [
+        [
+          408,
+          421
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "krikalev"
+      ],
+      "requires_facts": [
+        "drone_sensor"
+      ]
+    },
+    {
+      "chunk_id": "scenario-garden-quest",
+      "paragraph_ranges": [
+        [
+          423,
+          438
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "ryazansky"
+      ],
+      "requires_facts": [
+        "garden_active"
+      ]
+    },
+    {
+      "chunk_id": "scenario-capsule",
+      "paragraph_ranges": [
+        [
+          439,
+          453
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": [
+        "capsule_active"
+      ]
+    },
+    {
+      "chunk_id": "scenario-beacon",
+      "paragraph_ranges": [
+        [
+          455,
+          470
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "krikalev"
+      ],
+      "requires_facts": [
+        "navigation_records"
+      ]
+    },
+    {
+      "chunk_id": "scenario-power-quest",
+      "paragraph_ranges": [
+        [
+          471,
+          485
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh",
+        "ryazansky"
+      ],
+      "requires_facts": [
+        "power_audit"
+      ]
+    },
+    {
+      "chunk_id": "scenario-memory-quest",
+      "paragraph_ranges": [
+        [
+          487,
+          502
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "ryazansky",
+        "krikalev"
+      ],
+      "requires_facts": [
+        "archive_chronology",
+        "no_infection"
+      ]
+    },
+    {
+      "chunk_id": "scenario-door",
+      "paragraph_ranges": [
+        [
+          503,
+          517
+        ]
+      ],
+      "agents": [
+        "dzhanibekov",
+        "savinykh"
+      ],
+      "requires_facts": [
+        "door_active"
+      ]
+    }
+  ]
+}

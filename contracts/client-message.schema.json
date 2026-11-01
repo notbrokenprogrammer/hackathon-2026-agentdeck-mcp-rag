@@ -1,0 +1,510 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client requests, protocol v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "type",
+    "request_id",
+    "payload"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": 1
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "type": {
+          "const": "player.init"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "client_time": {
+              "type": "integer"
+            },
+            "username": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "player.input"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "seq",
+            "x",
+            "y",
+            "z",
+            "yaw"
+          ],
+          "properties": {
+            "seq": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "z": {
+              "type": "number"
+            },
+            "yaw": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "ping"
+        },
+        "payload": {
+          "type": "object"
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "agent.talk"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "agent_id": {
+              "enum": [
+                "savinykh",
+                "dzhanibekov",
+                "ryazansky",
+                "krikalev"
+              ]
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            }
+          },
+          "required": [
+            "agent_id",
+            "text"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "game.action"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "enum": [
+                "get_state",
+                "start_reactor",
+                "repair_cooling",
+                "start_greenhouse",
+                "use_battery",
+                "restore_archive",
+                "calculate_course",
+                "wait_cycle",
+                "final_emergency",
+                "final_ecosystem",
+                "final_combined",
+                "final_evacuation"
+              ]
+            },
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "action"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "investigation.solve"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "clues": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true
+            },
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "clues"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.get"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {}
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.leave"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {}
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.start"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {}
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.reset"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {}
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "experiment.start"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {}
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.create"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxLength": 60
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.join"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string",
+              "minLength": 6,
+              "maxLength": 6
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.role"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "enum": [
+                "captain",
+                "engineer",
+                "biologist",
+                "navigator",
+                "commander"
+              ]
+            }
+          },
+          "required": [
+            "role"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "room.ready"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ready": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "ready"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "chat.send"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 800
+            }
+          },
+          "required": [
+            "text"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "decision.vote"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "approve": {
+              "type": "boolean"
+            },
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "approve",
+            "expected_version"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "dialogue.history"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "agent_id"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "player.teleport"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "experiment.preview"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "speed": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.8
+            }
+          },
+          "required": [
+            "speed"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "experiment.command"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "enum": [
+                "join",
+                "predict",
+                "speed",
+                "run"
+              ]
+            },
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "role": {
+              "enum": [
+                "observer",
+                "operator"
+              ]
+            },
+            "prediction": {
+              "enum": [
+                "same",
+                "different"
+              ]
+            },
+            "speed": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.8
+            }
+          },
+          "required": [
+            "action",
+            "expected_version"
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "game.preview"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "type": "string"
+            },
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "action",
+            "expected_version"
+          ]
+        }
+      }
+    }
+  ]
+}

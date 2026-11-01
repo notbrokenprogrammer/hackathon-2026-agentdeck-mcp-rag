@@ -1,0 +1,24 @@
+{
+  "world_version": "5fb9db2701c4484f",
+  "passed": [
+    "npm test: 20 suites",
+    "18 selected Go tests plus TestReferenceWorldCoverage",
+    "18 viewpoints twice through production streaming loader",
+    "22 offline frames: 18 viewpoints, two door states, two lighting states",
+    "Light switch visibly changes streamed bridge pixels: 2.886x mean brightness",
+    "Color and linear data maps separated for 5 shared surface materials",
+    "9 supplied reference PNG SHA-256 hashes unchanged",
+    "34 embedded frontend files match source in all 4 server binaries",
+    "Mac arm64, Windows amd64 and Linux amd64 builds"
+  ],
+  "not_verified": [
+    "Live WebGL rendering and UI layout in browser",
+    "Real two-browser WebSocket session",
+    "FPS and GPU memory on user hardware"
+  ],
+  "limits": {
+    "working_resource_ratio": 0.25,
+    "hard_resource_ratio": 0.3,
+    "observed_peak_resource_ratio": 0.2968220726317267
+  }
+}

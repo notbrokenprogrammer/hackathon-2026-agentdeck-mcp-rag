@@ -1,0 +1,114 @@
+@import url("./fonts/geist.css");
+/* FIZMA.zip: auth-form.tsx, header.tsx, globals.css and emerald dark theme.
+   Values are the original Tailwind dimensions at its 16px root, scoped to entry. */
+#auth-screen {
+  --fizma-bg: oklch(0.06 0.015 260);
+  --fizma-fg: oklch(0.96 0 0);
+  --fizma-card: oklch(0.1 0.015 260);
+  --fizma-primary: oklch(0.72 0.16 165);
+  --fizma-on-primary: oklch(0.1 0.01 260);
+  --fizma-secondary: oklch(0.16 0.015 260);
+  --fizma-muted: oklch(0.58 0 0);
+  --fizma-border: oklch(0.2 0.015 260);
+  --fizma-glow: oklch(0.72 0.16 165 / 0.12);
+  --fizma-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fizma-mono: 'Geist Mono', 'SFMono-Regular', Consolas, monospace;
+  position: relative; min-height: 100vh; overflow: hidden;
+  background: var(--fizma-bg); color: var(--fizma-fg);
+  font: 16px/1.5 var(--fizma-sans); -webkit-font-smoothing: antialiased;
+}
+#auth-screen[data-theme="light"] {
+  --fizma-bg: oklch(0.985 0.002 260); --fizma-fg: oklch(0.12 0.015 260);
+  --fizma-card: oklch(1 0 0); --fizma-primary: oklch(0.68 0.17 160);
+  --fizma-on-primary: oklch(0.98 0 0); --fizma-secondary: oklch(0.96 0.008 260);
+  --fizma-muted: oklch(0.48 0.01 260); --fizma-border: oklch(0.92 0.008 260);
+  --fizma-glow: oklch(0.68 0.17 160 / 0.15);
+}
+#auth-screen::before {
+  content: ''; position: absolute; inset: 0; z-index: 20; pointer-events: none;
+  mask-image: none; background-size: auto;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, oklch(0 0 0 / 0.012) 3px, oklch(0 0 0 / 0.012) 6px);
+}
+#auth-screen::after { content: none; }
+#auth-screen button, #auth-screen a { -webkit-tap-highlight-color: transparent; }
+#auth-screen :is(button, a, input):focus-visible { outline: 2px solid var(--fizma-primary); outline-offset: 3px; }
+#auth-screen p { margin: 0; }
+#auth-screen svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#auth-screen .fizma-header { position: fixed; inset: 0 0 auto; z-index: 50; transition: background .5s, border-color .5s; border-bottom: 1px solid transparent; }
+#auth-screen .fizma-header.scrolled { border-bottom-color: color-mix(in oklab, var(--fizma-border) 70%, transparent); background: color-mix(in oklab, var(--fizma-bg) 85%, transparent); backdrop-filter: blur(24px); }
+#auth-screen .fizma-header-inner { max-width: 1280px; padding: 16px; margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+#auth-screen .fizma-brand { display: flex; align-items: center; gap: 12px; white-space: nowrap; font: 600 16px/24px var(--fizma-mono); letter-spacing: -.4px; }
+#auth-screen .fizma-brand>span:last-child>span { color: var(--fizma-primary); }
+#auth-screen .fizma-brand-icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; border: 1px solid color-mix(in oklab,var(--fizma-primary) 55%,transparent); background: color-mix(in oklab,var(--fizma-primary) 10%,transparent); color: var(--fizma-primary); font-size: 14px; transition: all .3s; }
+#auth-screen .fizma-brand:hover .fizma-brand-icon { transform: scale(1.05); background: var(--fizma-primary); color: var(--fizma-on-primary); border-color: var(--fizma-primary); box-shadow: 0 10px 15px color-mix(in oklab,var(--fizma-primary) 20%,transparent); }
+#auth-screen .fizma-nav { display: none; align-items: center; gap: 4px; }
+#auth-screen .fizma-nav :is(a,button) { position: relative; padding: 10px 12px; border-radius: 10px; font: 11px/16.5px var(--fizma-mono); letter-spacing: 1.87px; color: var(--fizma-muted); }
+#auth-screen .fizma-nav :is(a,button):hover { background: color-mix(in oklab,var(--fizma-secondary) 55%,transparent); color: var(--fizma-fg); }
+#auth-screen .fizma-nav :is(a,button)::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; border-radius: 99px; background: var(--fizma-primary); transition: width .3s; }
+#auth-screen .fizma-nav :is(a,button):hover::after { width: 28px; }
+#auth-screen .fizma-header-actions { display: flex; align-items: center; gap: 8px; }
+#auth-screen .fizma-theme-actions { display: none; align-items: center; gap: 4px; }
+#auth-screen .fizma-icon-button { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; color: var(--fizma-muted); }
+#auth-screen #fizma-theme-toggle { width: 32px; height: 32px; border-radius: 4px; }
+#auth-screen .fizma-icon-button:hover { color: var(--fizma-primary); background: color-mix(in oklab,var(--fizma-primary) 10%,transparent); }
+#auth-screen .fizma-login-link { display: none; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 10px; border: 1px solid color-mix(in oklab,var(--fizma-border) 80%,transparent); font: 12px/16px var(--fizma-mono); letter-spacing: .6px; color: var(--fizma-muted); }
+#auth-screen .fizma-login-link[aria-pressed=true] { border-color: var(--fizma-primary); background: color-mix(in oklab,var(--fizma-primary) 15%,transparent); color: var(--fizma-primary); }
+#auth-screen .fizma-login-link svg { width: 14px; height: 14px; }
+#auth-screen .fizma-online { display: none; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 999px; border: 1px solid color-mix(in oklab,var(--fizma-border) 60%,transparent); background: color-mix(in oklab,var(--fizma-secondary) 45%,transparent); color: var(--fizma-muted); font: 11px/16.5px var(--fizma-mono); }
+#auth-screen .fizma-online>span { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--fizma-primary); }
+#auth-screen .fizma-online>span::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: inherit; animation: fizma-ping 1s cubic-bezier(0,0,.2,1) infinite; }
+@keyframes fizma-ping { 75%,100% { transform: scale(2); opacity: 0; } }
+#auth-screen .fizma-menu-toggle { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--fizma-border); border-radius: 10px; background: color-mix(in oklab,var(--fizma-card) 60%,transparent); }
+#auth-screen .fizma-menu-toggle svg { width: 20px; height: 20px; }
+#auth-screen .fizma-mobile-menu { margin: 0 16px 16px; border: 1px solid var(--fizma-border); border-radius: 14px; padding: 12px; background: color-mix(in oklab,var(--fizma-card) 95%,transparent); backdrop-filter: blur(24px); }
+#auth-screen .fizma-mobile-menu :is(a,button) { display: block; width: 100%; text-align: left; padding: 12px 16px; font: 12px/16px var(--fizma-mono); letter-spacing: 1.92px; color: var(--fizma-muted); }
+#auth-screen .fizma-mobile-menu :is(a,button):hover { color: var(--fizma-primary); }
+#auth-screen .fizma-mobile-themes { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid color-mix(in oklab,var(--fizma-border) 60%,transparent); }
+#auth-screen .fizma-mobile-themes button { width: 36px; height: 36px; padding: 0; text-align: center; font-size: 18px; }
+#auth-screen .fizma-mobile-themes>span { margin-left: auto; font: 11px/16.5px var(--fizma-mono); color: var(--fizma-muted); }
+#auth-screen .fizma-auth-main { position: relative; z-index: 10; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 112px 16px 64px; }
+#auth-screen .fizma-auth-layout { display: grid; grid-template-columns: minmax(0,1fr); width: 100%; max-width: 1024px; overflow: hidden; border-radius: 16px; border: 1px solid color-mix(in oklab,var(--fizma-border) 70%,transparent); background: color-mix(in oklab,var(--fizma-card) 50%,transparent); box-shadow: 0 25px 50px -12px rgb(0 0 0 / .1); backdrop-filter: blur(24px); }
+#auth-screen .fizma-terminal-panel { position: relative; display: none; overflow: hidden; padding: 40px; border-right: 1px solid color-mix(in oklab,var(--fizma-border) 60%,transparent); background: color-mix(in oklab,var(--fizma-primary) 5%,transparent); }
+#auth-screen .fizma-auth-code { font: 12px/16px var(--fizma-mono); letter-spacing: 3.6px; text-transform: uppercase; color: var(--fizma-primary); }
+#auth-screen .fizma-terminal-lines { position: relative; z-index: 1; margin-top: 64px; font: 14px/28px var(--fizma-mono); }
+#auth-screen .fizma-terminal-lines p { line-height: 28px; }
+#auth-screen .fizma-terminal-lines p+p { margin-top: 20px; }
+#auth-screen .fizma-terminal-lines p>span:first-child { color: var(--fizma-primary); }
+#auth-screen .fizma-terminal-halo { position: absolute; bottom: -96px; left: -96px; width: 288px; height: 288px; border-radius: 50%; background: color-mix(in oklab,var(--fizma-primary) 15%,transparent); filter: blur(64px); }
+#auth-screen .fizma-auth-fields { min-width: 0; padding: 24px; }
+#auth-screen .fizma-form-heading { margin-bottom: 36px; }
+#auth-screen #auth-code-mobile { margin-bottom: 12px; }
+#auth-screen #auth-title { margin: 0; font: 700 30px/36px var(--fizma-sans); letter-spacing: -.75px; }
+#auth-screen #auth-subtitle { margin: 16px 0 0; color: var(--fizma-muted); font-size: 14px; line-height: 24px; }
+#auth-screen #auth-form { display: flex; flex-direction: column; gap: 20px; }
+#auth-screen .form-field { margin: 0; }
+#auth-screen label { display: block; margin: 0 0 8px; color: var(--fizma-muted); font: 12px/16px var(--fizma-mono); letter-spacing: .6px; text-transform: uppercase; }
+#auth-screen .input-shell { display: flex; align-items: center; min-height: 50px; border: 1px solid var(--fizma-border); border-radius: 10px; background: color-mix(in oklab,var(--fizma-bg) 60%,transparent); }
+#auth-screen .input-shell:focus-within { border-color: var(--fizma-primary); box-shadow: none; }
+#auth-screen .input-shell.invalid { border-color: #ed8d86; }
+#auth-screen .input-shell input { display: block; width: 100%; min-width: 0; border: 0; margin: 0; padding: 14px 16px; border-radius: 10px; background: transparent; color: var(--fizma-fg); font: 14px/20px var(--fizma-sans); outline: none; box-shadow: none; }
+#auth-screen .input-shell input::placeholder { color: color-mix(in oklab,var(--fizma-muted) 60%,transparent); }
+#auth-screen .password-wrap button { position: static; align-self: stretch; width: 42px; flex-shrink: 0; display: grid; place-items: center; padding: 0; transform: none; color: var(--fizma-muted); }
+#auth-screen .field-error { margin-top: 8px; color: #ed8d86; font: 12px/18px var(--fizma-sans); }
+#auth-screen #caps-warning { display: block; margin-top: 8px; font-size: 12px; }
+#auth-screen #auth-submit { position: relative; display: flex; align-items: center; justify-content: center; gap: 12px; overflow: hidden; width: 100%; min-height: 54px; padding: 16px 24px; border: 1px solid var(--fizma-primary); border-radius: 10px; background: color-mix(in oklab,var(--fizma-primary) 10%,transparent); color: var(--fizma-primary); font: 14px/20px var(--fizma-mono); letter-spacing: 0; transition: all .5s; }
+#auth-screen #auth-submit::before { content: ''; position: absolute; inset: 0; transform: translateX(-100%); background: var(--fizma-primary); transition: transform .5s; }
+#auth-screen #auth-submit>span { position: relative; z-index: 1; font-size: 14px; }
+#auth-screen #auth-submit .fizma-submit-arrow { font-size: 20px; line-height: 16px; transition: transform .3s; }
+#auth-screen #auth-submit:hover:not(:disabled) { color: var(--fizma-on-primary); }
+#auth-screen #auth-submit:hover:not(:disabled)::before { transform: translateX(0); }
+#auth-screen #auth-submit:hover .fizma-submit-arrow { transform: translateX(4px); }
+#auth-screen #auth-submit:disabled { pointer-events: none; opacity: .7; }
+#auth-screen #auth-error { margin: 20px 0 0; padding: 16px; border: 1px solid color-mix(in oklab,var(--fizma-primary) 35%,transparent); border-radius: 10px; background: color-mix(in oklab,var(--fizma-primary) 10%,transparent); color: var(--fizma-muted); font: 14px/24px var(--fizma-sans); }
+#auth-screen .fizma-auth-switch { margin-top: 28px; text-align: center; color: var(--fizma-muted); font-size: 14px; line-height: 20px; }
+#auth-screen #auth-switch { padding: 0; color: var(--fizma-primary); font-size: 14px; font-weight: 500; }
+#auth-screen #auth-switch:hover { text-decoration: underline; }
+#auth-screen .fizma-cursor-glow { position: fixed; z-index: 0; display: none; width: 400px; height: 400px; border-radius: 999px; pointer-events: none; transform: translate(-50%,-50%); background: radial-gradient(circle,var(--fizma-glow) 0%,transparent 66%); filter: blur(12px); opacity: 0; transition: opacity .4s ease,width .3s ease,height .3s ease; }
+#auth-screen .fizma-cursor-core { position: fixed; z-index: 0; display: none; width: 32px; height: 32px; border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); background: radial-gradient(circle,var(--fizma-primary) 0%,transparent 70%); filter: blur(4px); mix-blend-mode: screen; opacity: 0; transition: opacity .2s ease; }
+@media(min-width:640px) { #auth-screen .fizma-header-inner { padding-inline: 24px; } #auth-screen .fizma-header-actions { gap: 12px; } #auth-screen .fizma-theme-actions { display: flex; } #auth-screen .fizma-auth-main { padding: 128px 24px 64px; } #auth-screen .fizma-auth-fields { padding: 40px; } #auth-screen #auth-title { font-size: 36px; line-height: 40px; letter-spacing: -.9px; } }
+@media(min-width:768px) { #auth-screen .fizma-login-link { display: inline-flex; } }
+@media(min-width:1024px) { #auth-screen .fizma-auth-layout { grid-template-columns: .9fr 1.1fr; } #auth-screen .fizma-terminal-panel { display: block; } #auth-screen .fizma-auth-fields { padding: 48px; } #auth-screen .fizma-nav { display: flex; } #auth-screen #auth-code-mobile, #auth-screen .fizma-menu-toggle, #auth-screen .fizma-mobile-menu { display: none; } }
+@media(min-width:1024px) and (hover:hover) and (pointer:fine) { #auth-screen .fizma-cursor-glow, #auth-screen .fizma-cursor-core { display: block; } }
+@media(min-width:1280px) { #auth-screen .fizma-online { display: flex; } }
+@media(max-width:767px) { #auth-screen::before { opacity: .45; } }
+@media(prefers-reduced-motion:reduce) { #auth-screen *, #auth-screen *::before { animation-duration: .01ms!important; animation-iteration-count: 1!important; transition-duration: .01ms!important; } }

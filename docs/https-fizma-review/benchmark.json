@@ -1,0 +1,36 @@
+{
+  "platform": "darwin",
+  "arch": "arm64",
+  "node": "v24.11.0",
+  "renderer": "SoftwareRenderer + @napi-rs/canvas, offline",
+  "resolution": "1440x900",
+  "npc_count": 0,
+  "streamed_crew": false,
+  "shadows": false,
+  "benchmark": [
+    {
+      "name": "bridge",
+      "samples": 10,
+      "median_ms": 104.1,
+      "p95_ms": 116.8,
+      "triangles": 11446,
+      "calls": 685
+    },
+    {
+      "name": "corridor",
+      "samples": 10,
+      "median_ms": 137.6,
+      "p95_ms": 143,
+      "triangles": 11670,
+      "calls": 1258
+    },
+    {
+      "name": "research",
+      "samples": 10,
+      "median_ms": 61.2,
+      "p95_ms": 66.6,
+      "triangles": 2902,
+      "calls": 274
+    }
+  ]
+}

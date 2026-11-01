@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "scope": "production loader with server plans and local file transport; no browser or live network",
+  "routePasses": 2,
+  "requests": 3304,
+  "disposed": 1172,
+  "peak_bytes": 8733129,
+  "world_bytes": 29422101,
+  "peak_ratio": 0.2968220726317267,
+  "bridgeStaticBatching": {
+    "meshes_before": 8418,
+    "meshes_after": 2121,
+    "instanced_parts": 7142,
+    "scope": "resident static mesh nodes; not measured GPU draw calls"
+  },
+  "frames": []
+}

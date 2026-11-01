@@ -1,0 +1,17 @@
+{
+  "name": "last-crew-local",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sh scripts/preview.sh",
+    "test": "node scripts/test-auth-ui.mjs && node scripts/test-fizma-entry.mjs && node scripts/test-agent-status.mjs && node scripts/test-universe-ui.mjs && node scripts/test-universe-dom.mjs && node scripts/test-scene-state.mjs && node scripts/test-living-world.mjs && node scripts/test-interior.mjs && node scripts/test-network-client.mjs && node scripts/test-crew-models.mjs && node scripts/test-labels-doors.mjs && node scripts/test-agent-dialogues.mjs && node scripts/test-mission-quests.mjs && node scripts/test-reference-equipment.mjs && node scripts/test-interior-runtime.mjs && node scripts/test-reference-windows.mjs && node scripts/test-frame-budget.mjs && node scripts/test-texture-quality.mjs && node scripts/test-streaming-scheduler.mjs && node scripts/verify-world.mjs && node scripts/test-streamed-interior.mjs",
+    "build:world": "node scripts/build-world.mjs",
+    "review:interior": "node scripts/review-reference-interior.mjs"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "0.1.100"
+  }
+}

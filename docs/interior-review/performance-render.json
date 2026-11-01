@@ -1,0 +1,131 @@
+{
+  "scope": "CPU raster of actual serialized bridge-plan resources. Not browser/WebGL rendering or game FPS.",
+  "world_version": "4c97fe911d9687d7",
+  "world_bytes": 30802911,
+  "method": {
+    "scene": "bridge plan; bridge area roots plus background; static NPC poses; no dynamic living-world objects",
+    "camera_position": [
+      3.3,
+      1.7,
+      3.7
+    ],
+    "camera_target": [
+      2.6,
+      1.9,
+      -5.5
+    ],
+    "camera_fov": 67,
+    "camera_aspect": 1.6,
+    "warmup_frames": 2,
+    "measured_frames": 6,
+    "statistic": "sorted sample at index 3 (upper median)",
+    "renderer_interval_bypassed": true,
+    "same_scene_and_resources": true,
+    "platform": "macOS arm64",
+    "current_reproduction": "npm install && node scripts/benchmark-render.mjs",
+    "portable_reproduction": "npm install && node scripts/benchmark-render.mjs",
+    "historical_interactive_resolution": "910×569 was explicitly set as an approximation of the interactive pixel budget; automatic sizing rounds to911×569 for this1440×900 viewport."
+  },
+  "frames": [
+    {
+      "name": "before",
+      "width": 1440,
+      "height": 900,
+      "median_ms": 302.81375,
+      "min_ms": 292.69575,
+      "triangles": 17081,
+      "calls": 688
+    },
+    {
+      "name": "after-same-resolution",
+      "width": 1440,
+      "height": 900,
+      "median_ms": 239.63004099999944,
+      "min_ms": 235.51687500000025,
+      "triangles": 17081,
+      "calls": 688,
+      "mean_rgba_channel_difference": 0
+    },
+    {
+      "name": "after-interactive-budget",
+      "width": 910,
+      "height": 569,
+      "median_ms": 107.85841600000003,
+      "min_ms": 106.01975000000039,
+      "triangles": 16372,
+      "calls": 688
+    }
+  ],
+  "comparison": {
+    "same_resolution_reduction_percent": 20.865535002951674,
+    "interactive_reduction_percent": 64.38126868413339,
+    "lower_resolution_changes_pixels_and_subpixel_triangle_count": true,
+    "same_resolution_pixels_exactly_equal": true
+  },
+  "renderer_before_sha256": "712036621c2a2e6c55751266e9972fa85aba83e3ec398ee875d62a162783b829",
+  "limitations": [
+    "Historical before timings are retained; the reproduction script benchmarks only the current renderer.",
+    "This measures CPU rasterization, excludes resource loading and game/UI/network work, and does not establish GPU FPS.",
+    "Canvas fallback remains substantially slower than hardware WebGL.",
+    "Six timed samples were summarized during the before/after run; individual historical sample durations were not captured.",
+    "The exact pixel equality and percentage reductions above compare the original bridge resources and raster-loop optimization stage. Later UV correctness and interior asset changes are separate; final-world measurements are recorded in current_final_world."
+  ],
+  "renderer_after_optimization_before_uv_fix_sha256": "c3b536a4f61c9d934099dad8c5d99aa182846e84482dae93caf45f73a525bbc3",
+  "historical_stage": "Raster-loop optimization before texture UV wrapping fix and before new surface assets",
+  "current_final_world": {
+    "scope": "CPU raster of serialized bridge-plan resources; not browser/WebGL or game FPS",
+    "world_version": "116d144a644ed813",
+    "world_bytes": 30828215,
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "warmup_frames": 2,
+    "measured_frames": 6,
+    "frame_interval_bypassed": true,
+    "node": "v24.11.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "frames": [
+      {
+        "name": "full-resolution",
+        "width": 1440,
+        "height": 900,
+        "pixel_ratio": 1,
+        "median_ms": 229.33349999999996,
+        "min_ms": 224.18420900000024,
+        "samples_ms": [
+          231.55887499999994,
+          227.7019580000001,
+          229.33349999999996,
+          238.31887499999993,
+          228.2222079999999,
+          224.18420900000024
+        ],
+        "rgba_sha256": "ef4aeeae28b38e818ffa946fb727936338f7f5fa5da5b6c9786ade021d5c9de0",
+        "triangles": 16575,
+        "calls": 586
+      },
+      {
+        "name": "interactive-budget",
+        "width": 911,
+        "height": 569,
+        "pixel_ratio": 0.6324555320336759,
+        "median_ms": 111.00070800000003,
+        "min_ms": 105.74387500000012,
+        "samples_ms": [
+          116.40545800000018,
+          111.00070800000003,
+          109.23508300000003,
+          110.83654100000012,
+          105.74387500000012,
+          112.02104099999997
+        ],
+        "rgba_sha256": "dcbaa26dd9dbd84e9a4df8d62d19f437dbb0b8f48420a5db59d34af6483e8a1c",
+        "triangles": 15866,
+        "calls": 586
+      }
+    ],
+    "renderer_sha256": "42f15d9683e12015c3b68da39c80cd4da92b8dc4badbe915963b14a732d8d974"
+  }
+}

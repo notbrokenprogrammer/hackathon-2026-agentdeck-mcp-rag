@@ -1,0 +1,22 @@
+{
+  "passed": [
+    "npm test: auth, universe UI, DOM, scene, living world, interior",
+    "Go compile: all packages, no tests executed",
+    "go vet ./...",
+    "Go game tests except TestRealMCPProcessStartsWorldFromModelToolCall",
+    "Go game race tests with same exclusion",
+    "Go storage, rag, mission, knowledge suites",
+    "NPC local model HTTP transport and evidence isolation tests",
+    "World asset SHA256 verification",
+    "Canvas lighting, clipping and depth pixel tests",
+    "Cross compilation darwin/arm64, linux/amd64, windows/amd64",
+    "Ollama CLI model discovery and short real generation"
+  ],
+  "blocked": [
+    "Live game server/browser/WebSocket acceptance: local listening ports and browser launch restricted",
+    "Full Go network suite: local ports forbidden",
+    "Game-to-Ollama HTTP inference: connect operation not permitted; real CLI generation worked"
+  ],
+  "visuals": "offline runtime geometry; not browser screenshots",
+  "performance": "benchmark.json records CPU render timing, not game FPS"
+}

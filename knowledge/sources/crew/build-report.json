@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "built_from": "knowledge/sources/crew/documents.json",
+  "retrieval": "existing role-scoped BM25 with Russian suffix normalization",
+  "chunking": {
+    "boundaries": "document > heading > paragraph > sentence",
+    "target_characters": 2200,
+    "max_utf8_bytes": 9000,
+    "overlap": 0,
+    "exact_tokenizer": null
+  },
+  "personas": {
+    "dzhanibekov": {
+      "documents": 20,
+      "summary_documents": 15,
+      "chunks": 88,
+      "characters": 63952,
+      "public_domain_excerpt_documents": 5,
+      "unique_source_urls": 20
+    },
+    "ryazansky": {
+      "documents": 20,
+      "summary_documents": 12,
+      "chunks": 27,
+      "characters": 27589,
+      "public_domain_excerpt_documents": 8,
+      "unique_source_urls": 20
+    },
+    "krikalev": {
+      "documents": 20,
+      "summary_documents": 12,
+      "chunks": 48,
+      "characters": 63528,
+      "public_domain_excerpt_documents": 8,
+      "unique_source_urls": 20
+    }
+  },
+  "documents": 60,
+  "chunks": 163
+}

@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-01",
+  "platform": "darwin/arm64",
+  "go": "go1.26.4",
+  "checks": [
+    {
+      "command": "npm test",
+      "passed": true,
+      "log": "javascript.log",
+      "scope": "11 suites; DOM fixtures and real Three.js geometry, no browser"
+    },
+    {
+      "command": "go vet ./...",
+      "passed": true,
+      "log": "go-vet.log"
+    },
+    {
+      "command": "go test ./... -run '^$'",
+      "passed": true,
+      "log": "go-compile.log"
+    },
+    {
+      "command": "go test -race ./internal/server -run <HTTPS/LAN exact test names> -count=1",
+      "passed": true,
+      "log": "go-network-race.log",
+      "scope": "verified TLS and actual WebSocket frames over net.Pipe"
+    },
+    {
+      "command": "go test -race ./internal/share -count=1",
+      "passed": true,
+      "log": "go-share-race.log",
+      "scope": "verified installer fixtures and real child lifecycle, no Cloudflare edge"
+    },
+    {
+      "command": "go test -race ./internal/npc ./internal/app ./internal/storage ./internal/mcp ./internal/knowledge ./internal/rag ./internal/mission ./pkg/protocol -count=1",
+      "passed": true,
+      "log": "go-core-race.log"
+    },
+    {
+      "command": "go test -race ./internal/game -skip '^TestRealMCPProcessStartsWorldFromModelToolCall$' -count=1",
+      "passed": true,
+      "log": "go-game-race.log"
+    },
+    {
+      "command": "go test -race ./internal/agents -skip '^TestCrewCitationPointsToActuallyCitedDocument$' -count=1",
+      "passed": true,
+      "log": "go-agents-race.log"
+    },
+    {
+      "command": "go test ./...",
+      "passed": false,
+      "log": "go-all.log",
+      "reason": "Existing TCP-listener tests panic with operation not permitted in agents/game/server; kept unchanged"
+    },
+    {
+      "command": "go build -trimpath -o lastcrew .; python3 scripts/build-all.py",
+      "passed": true,
+      "log": "build.log"
+    },
+    {
+      "command": "python3 scripts/test-launcher.py ./lastcrew",
+      "passed": true,
+      "log": "launcher.log",
+      "scope": "actual compiled macOS CLI and MCP stdio"
+    },
+    {
+      "command": "python3 scripts/test-launcher.py ./bin/game-server-macos-arm64",
+      "passed": true,
+      "log": "release-launcher.log"
+    },
+    {
+      "command": "./lastcrew (temporary DATA_DIR, HOST_ADDR=127.0.0.1:0)",
+      "passed": false,
+      "log": "binary-start.json",
+      "reason": "bind operation not permitted"
+    },
+    {
+      "command": "go run . --install-tunnel",
+      "passed": false,
+      "reason": "GitHub DNS unavailable: lookup api.github.com: no such host"
+    },
+    {
+      "command": "Browser skill bootstrap",
+      "passed": false,
+      "reason": "Importing module node:process is not allowed in node_repl"
+    }
+  ],
+  "not_verified": [
+    "physical LAN",
+    "public Cloudflare tunnel",
+    "real Ollama inference",
+    "browser visual pixel match",
+    "hardware WebGL FPS",
+    "Windows/Linux runtime"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "feeders-crew": {
+      "command": "C:/Feeders_Merged/bin/mcp-tools.exe",
+      "args": [
+        "-chunks",
+        "C:/Feeders_Merged/knowledge"
+      ]
+    }
+  }
+}

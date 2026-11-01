@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "javascript_modules": [
+    "web/src/controls/PlayerControls.js",
+    "web/src/crew/BridgeCrew.js",
+    "web/src/main.js",
+    "web/src/mission.js",
+    "web/src/net/NetworkManager.js",
+    "web/src/render/SoftwareRenderer.js",
+    "web/src/scene.js",
+    "web/src/ui/AuthScreen.js",
+    "web/src/ui/FlightDeck.js",
+    "web/src/ui/Laboratory.js",
+    "web/src/world/StreamingWorld.js",
+    "web/src/world/sha256.js"
+  ],
+  "html_unique_ids": 106,
+  "label_and_description_targets": "valid",
+  "network_assets": "no external asset URLs",
+  "css": "balanced blocks; not a browser parsing/rendering check",
+  "go": "unavailable in this environment"
+}

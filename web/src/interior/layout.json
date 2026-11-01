@@ -1,0 +1,489 @@
+{
+  "version": 1,
+  "height": 3.8,
+  "wall": 0.28,
+  "radius": 0.28,
+  "doorWidth": 2.6,
+  "doorHeight": 2.8,
+  "doorDuration": 900,
+  "areas": [
+    {
+      "id": "bridge",
+      "name": "02 / МОСТИК",
+      "x": 0,
+      "z": 0,
+      "w": 16,
+      "d": 14,
+      "kind": "room"
+    },
+    {
+      "id": "cryo",
+      "name": "01 / КРИО • МЕДИЦИНА",
+      "x": -16,
+      "z": 0,
+      "w": 12,
+      "d": 12,
+      "kind": "room"
+    },
+    {
+      "id": "reactor",
+      "name": "03 / ИНЖЕНЕРНЫЙ",
+      "x": 17,
+      "z": 0,
+      "w": 12,
+      "d": 12,
+      "kind": "room"
+    },
+    {
+      "id": "bio",
+      "name": "04 / ОРАНЖЕРЕЯ",
+      "x": -16,
+      "z": -17,
+      "w": 12,
+      "d": 12,
+      "kind": "room"
+    },
+    {
+      "id": "habitat",
+      "name": "05 / ЖИЛОЙ ОТСЕК",
+      "x": -15,
+      "z": 16,
+      "w": 14,
+      "d": 10,
+      "kind": "room"
+    },
+    {
+      "id": "research",
+      "name": "06 / ИССЛЕДОВАНИЯ",
+      "x": 0,
+      "z": 16,
+      "w": 16,
+      "d": 10,
+      "kind": "room"
+    },
+    {
+      "id": "cargo",
+      "name": "07 / ГРУЗОВОЙ",
+      "x": 15.5,
+      "z": 16,
+      "w": 15,
+      "d": 10,
+      "kind": "room"
+    },
+    {
+      "id": "corridor",
+      "name": "ПАЛУБА 01 / ЦЕНТРАЛЬНЫЙ КОРИДОР",
+      "x": 0.5,
+      "z": 9,
+      "w": 45,
+      "d": 4,
+      "kind": "corridor"
+    },
+    {
+      "id": "west",
+      "name": "ПЕРЕХОД / МОСТИК",
+      "x": -9,
+      "z": 0,
+      "w": 2,
+      "d": 4,
+      "kind": "corridor"
+    },
+    {
+      "id": "east",
+      "name": "ПЕРЕХОД / РЕАКТОР",
+      "x": 9.5,
+      "z": 0,
+      "w": 3,
+      "d": 4,
+      "kind": "corridor"
+    },
+    {
+      "id": "north",
+      "name": "ПЕРЕХОД / ОРАНЖЕРЕЯ",
+      "x": -8,
+      "z": -9,
+      "w": 20,
+      "d": 4,
+      "kind": "corridor"
+    },
+    {
+      "id": "cryo-link",
+      "name": "ОБХОД / КРИО",
+      "x": -16,
+      "z": 6.5,
+      "w": 4,
+      "d": 1,
+      "kind": "corridor"
+    },
+    {
+      "id": "reactor-link",
+      "name": "ОБХОД / ИНЖЕНЕРНЫЙ",
+      "x": 17,
+      "z": 6.5,
+      "w": 4,
+      "d": 1,
+      "kind": "corridor"
+    }
+  ],
+  "gates": [
+    {
+      "id": "door-bridge",
+      "name": "Мостик / западный шлюз",
+      "x": -8,
+      "z": 0,
+      "rotation": 0,
+      "areas": [
+        "bridge",
+        "west"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-cryo",
+      "name": "Криоотсек",
+      "x": -10,
+      "z": 0,
+      "rotation": 0,
+      "areas": [
+        "cryo",
+        "west"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-east",
+      "name": "Мостик / инженерный переход",
+      "x": 8,
+      "z": 0,
+      "rotation": 0,
+      "areas": [
+        "bridge",
+        "east"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-reactor",
+      "name": "Инженерный отсек",
+      "x": 11,
+      "z": 0,
+      "rotation": 0,
+      "areas": [
+        "reactor",
+        "east"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-north",
+      "name": "Мостик / оранжерея",
+      "x": 0,
+      "z": -7,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "bridge",
+        "north"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-bio",
+      "name": "Оранжерея",
+      "x": -16,
+      "z": -11,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "bio",
+        "north"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-main",
+      "name": "Мостик / центральный коридор",
+      "x": 0,
+      "z": 7,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "bridge",
+        "corridor"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-cryo-aft",
+      "name": "Крио / обходной маршрут",
+      "x": -16,
+      "z": 6,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "cryo",
+        "cryo-link"
+      ],
+      "door": true
+    },
+    {
+      "id": "cryo-junction",
+      "name": "Крио",
+      "x": -16,
+      "z": 7,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "cryo-link",
+        "corridor"
+      ],
+      "door": false
+    },
+    {
+      "id": "door-reactor-aft",
+      "name": "Инженерный / обходной маршрут",
+      "x": 17,
+      "z": 6,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "reactor",
+        "reactor-link"
+      ],
+      "door": true
+    },
+    {
+      "id": "reactor-junction",
+      "name": "Инженерный",
+      "x": 17,
+      "z": 7,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "reactor-link",
+        "corridor"
+      ],
+      "door": false
+    },
+    {
+      "id": "door-habitat",
+      "name": "Жилой отсек",
+      "x": -15,
+      "z": 11,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "habitat",
+        "corridor"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-research",
+      "name": "Исследовательский отсек",
+      "x": 0,
+      "z": 11,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "research",
+        "corridor"
+      ],
+      "door": true
+    },
+    {
+      "id": "door-cargo",
+      "name": "Грузовой отсек",
+      "x": 15.5,
+      "z": 11,
+      "rotation": 1.5707963267948966,
+      "areas": [
+        "cargo",
+        "corridor"
+      ],
+      "door": true
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "console-0",
+      "x": -5,
+      "z": -4.8,
+      "w": 3.0,
+      "d": 1.25
+    },
+    {
+      "id": "chair-0",
+      "x": -5,
+      "z": -2.9,
+      "w": 0.85,
+      "d": 0.9
+    },
+    {
+      "id": "console-1",
+      "x": 0,
+      "z": -4.8,
+      "w": 3.0,
+      "d": 1.25
+    },
+    {
+      "id": "chair-1",
+      "x": 0,
+      "z": -2.9,
+      "w": 0.85,
+      "d": 0.9
+    },
+    {
+      "id": "console-2",
+      "x": 5,
+      "z": -4.8,
+      "w": 3.0,
+      "d": 1.25
+    },
+    {
+      "id": "chair-2",
+      "x": 5,
+      "z": -2.9,
+      "w": 0.85,
+      "d": 0.9
+    },
+    {
+      "id": "nav-table",
+      "x": 0,
+      "z": 1.5,
+      "w": 3.2,
+      "d": 1.6
+    },
+    {
+      "id": "pod-0",
+      "x": -20,
+      "z": -3,
+      "w": 2.4,
+      "d": 1.65
+    },
+    {
+      "id": "pod-1",
+      "x": -20,
+      "z": 0,
+      "w": 2.4,
+      "d": 1.65
+    },
+    {
+      "id": "pod-2",
+      "x": -20,
+      "z": 3,
+      "w": 2.4,
+      "d": 1.65
+    },
+    {
+      "id": "cryo-cabinet",
+      "x": -12,
+      "z": -4.6,
+      "w": 2.7,
+      "d": 0.8
+    },
+    {
+      "id": "core",
+      "x": 17,
+      "z": 0,
+      "w": 3.6,
+      "d": 3.6
+    },
+    {
+      "id": "engine-rack",
+      "x": 21.5,
+      "z": -3,
+      "w": 1,
+      "d": 3
+    },
+    {
+      "id": "grow-0",
+      "x": -20,
+      "z": -18,
+      "w": 1.6,
+      "d": 5
+    },
+    {
+      "id": "grow-1",
+      "x": -16,
+      "z": -18,
+      "w": 1.6,
+      "d": 5
+    },
+    {
+      "id": "grow-2",
+      "x": -12,
+      "z": -18,
+      "w": 1.6,
+      "d": 5
+    },
+    {
+      "id": "bunk-0",
+      "x": -20,
+      "z": 14,
+      "w": 2.7,
+      "d": 2
+    },
+    {
+      "id": "bunk-1",
+      "x": -20,
+      "z": 18,
+      "w": 2.7,
+      "d": 2
+    },
+    {
+      "id": "sofa",
+      "x": -10,
+      "z": 18,
+      "w": 2.8,
+      "d": 1
+    },
+    {
+      "id": "locker",
+      "x": -10,
+      "z": 13,
+      "w": 0.8,
+      "d": 2.5
+    },
+    {
+      "id": "lab-bed",
+      "x": -5,
+      "z": 17,
+      "w": 2.2,
+      "d": 3
+    },
+    {
+      "id": "lab-desk",
+      "x": 4,
+      "z": 18,
+      "w": 4,
+      "d": 1.3
+    },
+    {
+      "id": "lab-cabinet",
+      "x": 5,
+      "z": 13,
+      "w": 3,
+      "d": 0.8
+    },
+    {
+      "id": "cargo-0",
+      "x": 11,
+      "z": 14,
+      "w": 2.5,
+      "d": 2
+    },
+    {
+      "id": "cargo-1",
+      "x": 11,
+      "z": 18,
+      "w": 2.5,
+      "d": 2
+    },
+    {
+      "id": "cargo-2",
+      "x": 20,
+      "z": 14,
+      "w": 2.5,
+      "d": 2
+    },
+    {
+      "id": "cargo-3",
+      "x": 20,
+      "z": 18,
+      "w": 2.5,
+      "d": 2
+    }
+  ]
+}

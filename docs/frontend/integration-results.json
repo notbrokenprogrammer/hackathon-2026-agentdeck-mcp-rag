@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": [
+    "Linux host starts with external updated frontend",
+    "HTTP bytes match all changed frontend files; auth routes work",
+    "Anonymous WebSocket rejected",
+    "Three independent accounts register and restore HTTP sessions",
+    "Room join, role occupancy, readiness, start",
+    "Server preview, shared repair, idempotence, room isolation",
+    "Team chat delivered to second client",
+    "Four deck routes: updated world hashes, live system tags and cache budget <=10%",
+    "All four mentors respond in fallback mode through real MCP stdio",
+    "Process restart restores session, room, state, dialogue",
+    "Logout revokes session; login resumes saved room",
+    "Full quest path, investigation and successful two-player final vote",
+    "Mission reset and failed ending on unsafe reactor path"
+  ],
+  "world_max_ratio": 0.05459994907147181,
+  "renderer": "not tested in browser",
+  "binary": "original Linux binary, updated external web and world; no recompilation"
+}

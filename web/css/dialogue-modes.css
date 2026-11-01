@@ -1,0 +1,28 @@
+.dialogue-mode-selector { margin-bottom: 10px; }
+.dialogue-mode-heading { margin: 0 0 6px; color: #9db8c8; font: 9px/1.4 var(--mono); letter-spacing: .06em; }
+.dialogue-mode-options { display: grid; grid-template-columns: .8fr .9fr 1.3fr; gap: 6px; }
+.dialogue-mode-options button { min-height: 34px; padding: 6px 7px; border: 1px solid #b1d4e32b; border-radius: 6px; color: #a9bfcc; background: #07152066; font: 10px/1.35 var(--sans); }
+.dialogue-mode-options button[aria-pressed=true] { color: var(--accent); border-color: color-mix(in srgb,var(--accent) 55%,transparent); background: color-mix(in srgb,var(--accent) 10%,transparent); }
+#dialogue-mode-description { margin: 6px 0 0; color: #8fa9b9; font: 10px/1.45 var(--sans); }
+#dialogue-history-retry { margin-top: 6px; padding: 4px 0; font-size: 11px; }
+#agent-status-check { align-self: flex-start; margin: 0 18px 5px; padding: 0; font-size: 10px; }
+.retrieval-note { margin-top: 6px; font-size: 10px; line-height: 1.5; color: #d8bd91; }
+#comms-panel > :is(.comms-tabs,.npc-profile,.chat-mode,.chat-bottom,#agent-status-check) { flex-shrink: 0; }
+#comms-panel { width: min(480px, calc(100% - 32px)); top: 88px; bottom: 150px; }
+#comms-panel.expanded { width: min(760px, calc(100% - 32px)); top: 12px; z-index: 6; background: #0d1c2bf7; }
+#comms-panel .chat { padding: 16px 22px; min-height: 80px; }
+#comms-panel .chat-message { font-size: 14px; line-height: 1.7; }
+#comms-panel #chat-input { font-size: 14px; min-height: 72px; max-height: 140px; resize: vertical; }
+#comms-panel .npc-profile select { max-width: 100%; font-size: 14px; }
+#comms-panel .comms-tabs { gap: 16px; }
+#comms-panel #expand-comms { margin-left: auto; width: 32px; height: 32px; }
+#comms-panel #close-comms { margin-left: 0; width: 32px; height: 32px; }
+#toggle-lights { white-space: nowrap; }
+#toggle-lights[aria-pressed=true] { color: var(--accent); border-color: #83ded550; }
+@media(max-width:700px) {
+ #comms-panel, #comms-panel.expanded { left: 12px; right: 12px; width: auto; top: 12px; bottom: 192px; }
+ #comms-panel .chat { padding: 12px 16px; }
+ #comms-panel .suggestions { display: none; }
+ .scene-tools { flex-wrap: wrap; max-width: calc(100% - 24px); }
+}
+@media(max-height:700px) { #comms-panel { top: 12px; } #comms-panel .npc-profile { padding-top: 8px; padding-bottom: 4px; } #comms-panel .chat-bottom { padding-top: 6px; padding-bottom: 6px; } #comms-panel :is(.suggestions,#dialogue-mode-description,#chat-foot) { display: none; } #comms-panel #chat-input { min-height: 48px; } }

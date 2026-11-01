@@ -1,0 +1,55 @@
+{
+  "scope": "CPU raster of serialized bridge-plan resources; not browser/WebGL or game FPS",
+  "world_version": "5fb9db2701c4484f",
+  "world_bytes": 29422101,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "warmup_frames": 2,
+  "measured_frames": 6,
+  "frame_interval_bypassed": true,
+  "node": "v24.11.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "frames": [
+    {
+      "name": "full-resolution",
+      "width": 1440,
+      "height": 900,
+      "pixel_ratio": 1,
+      "median_ms": 111.573125,
+      "min_ms": 108.32100000000003,
+      "samples_ms": [
+        108.51220799999999,
+        108.32100000000003,
+        108.75758400000007,
+        111.573125,
+        114.9744159999999,
+        116.31179199999997
+      ],
+      "rgba_sha256": "1ef3b26cbbc7cf0ff4792c66f9576031c6c017da3155849b5b5b25d27539e5c9",
+      "triangles": 13801,
+      "calls": 680
+    },
+    {
+      "name": "interactive-budget",
+      "width": 607,
+      "height": 379,
+      "pixel_ratio": 0.4216370213557839,
+      "median_ms": 35.576249999999845,
+      "min_ms": 35.26454100000001,
+      "samples_ms": [
+        36.61025000000018,
+        36.773708999999826,
+        35.55775000000017,
+        35.26454100000001,
+        35.305875000000015,
+        35.576249999999845
+      ],
+      "rgba_sha256": "a999dfc505649bd0f0a89a408b3cb60d9d1a619c67e66d3c3e67304ae4272a88",
+      "triangles": 12264,
+      "calls": 680
+    }
+  ]
+}
