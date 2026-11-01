@@ -1,12 +1,31 @@
 <div align="center">
 
-# AgentDeck · Hackathon 2026
+# 🚀 AgentDeck
 
 ### ИИ-экипаж с инструментами MCP и гибридным RAG
 
-**4 ролевых агента · локальная LLM · проверяемые источники · общий игровой мир**
+<p>
+  <img src="https://img.shields.io/badge/%D0%9C%D0%93%D0%A2%D0%A3-1E3A8A?style=for-the-badge" alt="МГТУ" />
+  <img src="https://img.shields.io/badge/%D0%9A%D0%A2%D0%A1-0E7490?style=for-the-badge" alt="КТС" />
+  <img src="https://img.shields.io/badge/Hackathon-2026-F59E0B?style=for-the-badge" alt="Хакатон 2026" />
+</p>
 
-[Быстрый запуск](#быстрый-запуск) · [Технологии](#ключевые-технологии) · [Гипотезы](#проверенные-гипотезы) · [Демонстрация](#демонстрация-за-5-минут)
+<p>
+  <a href="go.mod"><img src="https://img.shields.io/badge/Go-1.23%2B-00ADD8?style=for-the-badge&amp;logo=go&amp;logoColor=white" alt="Go 1.23+" /></a>
+  <a href="web/"><img src="https://img.shields.io/badge/Three.js-111827?style=for-the-badge&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js" /></a>
+  <a href=".env.example"><img src="https://img.shields.io/badge/Ollama-18181B?style=for-the-badge&amp;logo=ollama&amp;logoColor=white" alt="Ollama" /></a>
+  <a href="go.mod"><img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&amp;logo=sqlite&amp;logoColor=white" alt="SQLite" /></a>
+</p>
+
+<p>
+  <a href="docs/mcp-rag.md"><img src="https://img.shields.io/badge/MCP-JSON--RPC%20%2F%20stdio-7C3AED?style=flat-square" alt="MCP · JSON-RPC / stdio" /></a>
+  <a href="internal/rag/README.md"><img src="https://img.shields.io/badge/RAG-BM25%20%2B%20vectors-0F766E?style=flat-square" alt="Гибридный RAG · BM25 + vectors" /></a>
+  <a href="https://github.com/notbrokenprogrammer/hackathon-2026-agentdeck-mcp-rag/actions/workflows/go.yml"><img src="https://github.com/notbrokenprogrammer/hackathon-2026-agentdeck-mcp-rag/actions/workflows/go.yml/badge.svg?branch=main" alt="Project checks · статус CI" /></a>
+</p>
+
+**4 ролевых агента · 1–4 игрока · локальная LLM · проверяемые источники**
+
+[🚀 Быстрый запуск](#быстрый-запуск) · [🎮 Демонстрация](#демонстрация-за-5-минут) · [🧩 Технологии](#ключевые-технологии) · [🧪 Проверки](#воспроизводимые-проверки) · [📖 Архитектура](docs/architecture.md)
 
 </div>
 
