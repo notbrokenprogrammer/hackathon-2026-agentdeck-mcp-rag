@@ -1,48 +1,33 @@
-<div align="center">
+# AgentDeck
 
-# 🚀 AgentDeck
+Кооперативная образовательная среда с ролевыми ИИ-агентами, MCP и гибридным RAG.
 
-### ИИ-экипаж с инструментами MCP и гибридным RAG
+![МГТУ](https://img.shields.io/badge/%D0%9C%D0%93%D0%A2%D0%A3-334155?style=flat-square)
+![КТС](https://img.shields.io/badge/%D0%9A%D0%A2%D0%A1-334155?style=flat-square)
+![Хакатон 2026](https://img.shields.io/badge/Hackathon-2026-475569?style=flat-square)
 
-<p>
-  <img src="https://img.shields.io/badge/%D0%9C%D0%93%D0%A2%D0%A3-1E3A8A?style=for-the-badge" alt="МГТУ" />
-  <img src="https://img.shields.io/badge/%D0%9A%D0%A2%D0%A1-0E7490?style=for-the-badge" alt="КТС" />
-  <img src="https://img.shields.io/badge/Hackathon-2026-F59E0B?style=for-the-badge" alt="Хакатон 2026" />
-</p>
+[![Go 1.23+](https://img.shields.io/badge/Go-1.23%2B-4B6475?style=flat-square&logo=go&logoColor=white)](go.mod)
+[![Three.js](https://img.shields.io/badge/Three.js-374151?style=flat-square&logo=threedotjs&logoColor=white)](web/)
+[![Ollama](https://img.shields.io/badge/Ollama-374151?style=flat-square&logo=ollama&logoColor=white)](.env.example)
+[![SQLite](https://img.shields.io/badge/SQLite-4B6475?style=flat-square&logo=sqlite&logoColor=white)](go.mod)
+[![Project checks](https://github.com/notbrokenprogrammer/hackathon-2026-agentdeck-mcp-rag/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/notbrokenprogrammer/hackathon-2026-agentdeck-mcp-rag/actions/workflows/go.yml)
 
-<p>
-  <a href="go.mod"><img src="https://img.shields.io/badge/Go-1.23%2B-00ADD8?style=for-the-badge&amp;logo=go&amp;logoColor=white" alt="Go 1.23+" /></a>
-  <a href="web/"><img src="https://img.shields.io/badge/Three.js-111827?style=for-the-badge&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js" /></a>
-  <a href=".env.example"><img src="https://img.shields.io/badge/Ollama-18181B?style=for-the-badge&amp;logo=ollama&amp;logoColor=white" alt="Ollama" /></a>
-  <a href="go.mod"><img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&amp;logo=sqlite&amp;logoColor=white" alt="SQLite" /></a>
-</p>
-
-<p>
-  <a href="docs/mcp-rag.md"><img src="https://img.shields.io/badge/MCP-JSON--RPC%20%2F%20stdio-7C3AED?style=flat-square" alt="MCP · JSON-RPC / stdio" /></a>
-  <a href="internal/rag/README.md"><img src="https://img.shields.io/badge/RAG-BM25%20%2B%20vectors-0F766E?style=flat-square" alt="Гибридный RAG · BM25 + vectors" /></a>
-  <a href="https://github.com/notbrokenprogrammer/hackathon-2026-agentdeck-mcp-rag/actions/workflows/go.yml"><img src="https://github.com/notbrokenprogrammer/hackathon-2026-agentdeck-mcp-rag/actions/workflows/go.yml/badge.svg?branch=main" alt="Project checks · статус CI" /></a>
-</p>
-
-**4 ролевых агента · 1–4 игрока · локальная LLM · проверяемые источники**
-
-[🚀 Быстрый запуск](#быстрый-запуск) · [🎮 Демонстрация](#демонстрация-за-5-минут) · [🧩 Технологии](#ключевые-технологии) · [🧪 Проверки](#воспроизводимые-проверки) · [📖 Архитектура](docs/architecture.md)
-
-</div>
+[Быстрый запуск](#быстрый-запуск) · [Демонстрация](#демонстрация-за-5-минут) · [Технологии](#ключевые-технологии) · [Проверки](#воспроизводимые-проверки) · [Архитектура](docs/architecture.md)
 
 **AgentDeck** — прототип кооперативной образовательной среды для 1–4 игроков.
 На борту корабля «Горизонт–7» команда восстанавливает системы, проводит эксперименты
 и обращается к четырём ИИ-наставникам. Агенты находят материалы через RAG,
 используют инструменты MCP и помогают действовать в общей симуляции.
 
-Проект исследует связку **«вопрос → источник → объяснение → проверяемое действие»**.
-Игровой мир даёт агентам конкретные задачи, ограничения и наблюдаемый результат:
-охлаждение действительно восстановлено, опыт действительно создан, изменение видят другие игроки.
+Проект связывает поиск информации, объяснение и выполнение действий в симуляции.
+Результаты операций отражаются в состоянии миссии: восстановление охлаждения,
+создание эксперимента и синхронизация изменений между игроками.
 
 ![Корабельный мостик AgentDeck](docs/reference-interior-review/bridge.png)
 
 *Офлайн-рендер ресурсов игрового мира. В интерфейсе и исходниках также сохранено название LastCrew FlightDeck.*
 
-## Идея
+## Принцип работы
 
 В учебном диалоге важно понимать, откуда взялся ответ и что произошло после команды.
 AgentDeck связывает разговор с документами и состоянием симуляции:
@@ -70,7 +55,7 @@ AgentDeck связывает разговор с документами и со�
 материал для лаборатории. Корпуса трёх наставников содержат **60 документов / 163 фрагмента**;
 происхождение и тип материалов указаны в [каталоге источников](knowledge/sources/crew/SOURCES.md).
 
-## Что нового реализовано в прототипе
+## Возможности прототипа
 
 ### Три режима с разными полномочиями
 
@@ -133,7 +118,7 @@ flowchart TD
 Модельные ответы и embedding-векторы в соответствующих тестах задаются контролируемым
 HTTP-транспортом. Это проверяет интеграцию и ограничения, но не качество реальных весов.
 
-| Гипотеза | Что подтвердили | Доказательство |
+| Гипотеза | Результат проверки | Тесты |
 |---|---|---|
 | MCP можно включить в рабочий цикл игры | Handshake, вызов инструментов и чистый JSON-RPC через настоящий дочерний процесс | [Проверка launcher](scripts/test-launcher.py), [smoke-тест](cmd/smoke-release/main.go) |
 | Семантический поиск способен найти фрагмент без общего слова с запросом | Векторное совпадение и объединение рангов RRF работают на заданных векторах | `TestHybridSemanticOnlyMatchUsesRealEmbeddingProtocol`, `TestHybridReciprocalRankFusion` в [hybrid_test.go](internal/rag/hybrid_test.go) |
