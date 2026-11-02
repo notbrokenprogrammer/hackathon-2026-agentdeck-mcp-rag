@@ -12,11 +12,11 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"os/exec"
-	"time"
 	"path/filepath"
 	"runtime"
 	"sync/atomic"
 	"testing"
+	"time"
 )
 
 func expCmd(t *testing.T, m *Module, s *fakeSession, action string, extra map[string]any) protocol.Envelope {
