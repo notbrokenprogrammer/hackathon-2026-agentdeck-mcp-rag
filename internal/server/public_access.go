@@ -32,9 +32,9 @@ func ValidatePublicURL(raw string) (string, error) {
 		return "", fmt.Errorf("PUBLIC_URL must be an HTTPS origin without a path, credentials or query")
 	}
 	host := strings.ToLower(u.Hostname())
-	if strings.Contains(host, ":") {
+	if strings.HasPrefix(u.Host, "[") || strings.Contains(host, ":") {
 		address, err := netip.ParseAddr(host)
-		if err != nil || address.Zone() != "" {
+		if err != nil || !address.Is6() || address.Zone() != "" {
 			return "", fmt.Errorf("PUBLIC_URL must contain a valid IPv6 address")
 		}
 		host = "[" + address.String() + "]"

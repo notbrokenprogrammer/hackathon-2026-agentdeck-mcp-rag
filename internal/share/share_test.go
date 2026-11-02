@@ -13,6 +13,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -288,7 +289,7 @@ func TestConnectorWatchdogAfterURL(t *testing.T) {
 	}
 }
 func TestExplicitBinary(t *testing.T) {
-	file := filepath.Join(t.TempDir(), BinaryName("darwin", "arm64"))
+	file := filepath.Join(t.TempDir(), BinaryName(runtime.GOOS, runtime.GOARCH))
 	if err := os.WriteFile(file, []byte("test"), 0755); err != nil {
 		t.Fatal(err)
 	}

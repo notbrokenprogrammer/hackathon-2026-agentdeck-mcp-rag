@@ -11,6 +11,8 @@ import (
 	"math"
 	"net/http"
 	"net/http/httptest"
+	"os/exec"
+	"time"
 	"path/filepath"
 	"runtime"
 	"sync/atomic"
@@ -119,13 +121,21 @@ func TestRealMCPProcessStartsWorldFromModelToolCall(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	mcpBinary := "mcp-tools"
-	if runtime.GOOS == "darwin" {
-		mcpBinary += "-macos-" + runtime.GOARCH
-	} else if runtime.GOOS == "windows" {
-		mcpBinary += ".exe"
+	// Build the real MCP process from this checkout; release binaries are not
+	// present on a clean checkout and may be stale on a developer machine.
+	mcpName := "mcp-tools"
+	if runtime.GOOS == "windows" {
+		mcpName += ".exe"
 	}
-	local.WithMission(m).WithMCP(filepath.Join("..", "..", "bin", mcpBinary), viewFile, filepath.Join("..", "..", "knowledge")).WithWorldTools(world.URL, "test-only-capability")
+	mcpBinary := filepath.Join(t.TempDir(), mcpName)
+	buildCtx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
+	defer cancel()
+	build := exec.CommandContext(buildCtx, "go", "build", "-o", mcpBinary, "./cmd/mcp-tools")
+	build.Dir = filepath.Join("..", "..")
+	if output, err := build.CombinedOutput(); err != nil {
+		t.Fatalf("build MCP test process: %v\n%s", err, output)
+	}
+	local.WithMission(m).WithMCP(mcpBinary, viewFile, filepath.Join("..", "..", "knowledge")).WithWorldTools(world.URL, "test-only-capability")
 	service := agents.NewCrewService(local, nil)
 	reply, err := service.Talk(context.Background(), agents.Request{PlayerID: "alice", Scope: m.memoryScope("alice"), AgentID: "dzhanibekov", Text: "Покажи опыт со световыми часами"})
 	if err != nil || reply.Mode != "model" || modelCalls.Load() < 2 {

@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -191,7 +192,8 @@ func TestHybridCacheRoundTripIdentityCorruptionAndPermissions(t *testing.T) {
 	if err != nil || strings.Contains(string(data), chunk.Text) {
 		t.Fatalf("cache exposed text: %v", err)
 	}
-	if st, err := os.Stat(path); err != nil || st.Mode().Perm() != 0600 {
+	// Windows does not expose POSIX owner/group permission bits.
+	if st, err := os.Stat(path); err != nil || (runtime.GOOS != "windows" && st.Mode().Perm() != 0600) {
 		t.Fatalf("cache permissions: %v %v", st, err)
 	}
 	reloaded := hybridStore(t, chunk)

@@ -28,7 +28,7 @@ func TestPublicURLCanonicalPorts(t *testing.T) {
 			}
 		})
 	}
-	for _, raw := range []string{"https://host:", "https://host:0", "https://host:000", "https://host:65536", "https://host:99999999999999999999", "https://host:-1", "https://host:abc", "https://[::1]:", "https://[::1]:65536", "https://[not-ipv6]", "https://[fe80::1%25eth0]", "http://host", "https://user:password@host", "https://host/path", "https://host?query=1"} {
+	for _, raw := range []string{"https://host:", "https://host:0", "https://host:000", "https://host:65536", "https://host:99999999999999999999", "https://host:-1", "https://host:abc", "https://[::1]:", "https://[::1]:65536", "https://[not-ipv6]", "https://[127.0.0.1]", "https://[fe80::1%25eth0]", "http://host", "https://user:password@host", "https://host/path", "https://host?query=1"} {
 		t.Run(raw, func(t *testing.T) {
 			if got, err := server.ValidatePublicURL(raw); err == nil {
 				t.Fatalf("invalid origin accepted: %q => %q", raw, got)
